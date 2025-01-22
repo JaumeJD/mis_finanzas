@@ -23,4 +23,5 @@ class Index extends Component
     {
         return view('components.layouts.index');
     }
+
 }
