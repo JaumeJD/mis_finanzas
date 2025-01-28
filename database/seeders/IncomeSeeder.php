@@ -14,8 +14,8 @@ class IncomeSeeder extends Seeder
      */
     public function run(): void
     {
-        $now = now();
         $data = [];
+        $now = now();
         for ($i=0; $i <= 50 ; $i++) { 
             $data[] = [
                 'amount' => rand(50, 5000),

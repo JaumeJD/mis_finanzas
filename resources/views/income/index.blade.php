@@ -1,6 +1,6 @@
 <x-layouts.index :title="$title">
 
-    <x-table :tableData='$tableData'/>
+    <x-table :heading='$heading' :tableData='$tableData'/>
 
     <div class="mt-4">
         <x-button href="#">Add income</x-button>
