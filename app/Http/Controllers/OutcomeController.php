@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Income;
+use App\Models\Outcome;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class IncomeController extends Controller
+class OutcomeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,14 +14,13 @@ class IncomeController extends Controller
     public function index()
     {
 
-        $incomeData = (Income::all())->toArray();
+        $tableData = (Outcome::all())->toArray();
 
-        $heading = array_keys($incomeData[0]);
-        $data = array_values($incomeData);
+        $heading = array_keys($tableData[0]);
+        $data = array_values($tableData);
 
         //Aquí la lógica de negocio para el index
-        return view('income.index',['title' => 'My incomes', 'heading' => $heading, 'tableData' => $data]);
-        
+        return view('outcome.index',['title' => 'My outcomes', 'heading' => $heading, 'tableData' => $tableData]);
     }
 
     /**
@@ -30,7 +29,7 @@ class IncomeController extends Controller
     public function create()
     {
         //
-        return '<p>Esta es la página del create de incomes</p>';
+        return '<p>Esta es la página del create de outcomes</p>';
     }
 
     /**
@@ -47,7 +46,7 @@ class IncomeController extends Controller
     public function show(string $id)
     {
         //
-        return '<p>Esta es la página del show de incomes</p>';
+        return '<p>Esta es la página del show de outcomes</p>';
     }
 
     /**
@@ -56,7 +55,7 @@ class IncomeController extends Controller
     public function edit(string $id)
     {
         //
-        return '<p>Esta es la página del edit de incomes</p>';
+        return '<p>Esta es la página del edit de outcomes</p>';
     }
 
     /**

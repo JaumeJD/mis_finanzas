@@ -7,14 +7,14 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Income;
 use Illuminate\Support\Facades\DB;
 
-class IncomeSeeder extends Seeder
+class OutcomeSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        $data = [];
+        $data=[];
         $now = now();
         for ($i=0; $i <= 50 ; $i++) { 
             $data[] = [
@@ -23,6 +23,6 @@ class IncomeSeeder extends Seeder
                 'updated_at' => $now
             ];
         }
-        DB::table('incomes')->insert($data);
+        DB::table('outcomes')->insert($data);
     }
 }
