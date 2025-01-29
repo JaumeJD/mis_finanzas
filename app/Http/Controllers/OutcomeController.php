@@ -14,13 +14,13 @@ class OutcomeController extends Controller
     public function index()
     {
 
-        $tableData = (Outcome::all())->toArray();
+        $outcomeData = (Outcome::all())->toArray();
 
-        $heading = array_keys($tableData[0]);
-        $data = array_values($tableData);
+        $heading = array_keys($outcomeData[0]);
+        $data = array_values($outcomeData);
 
         //Aquí la lógica de negocio para el index
-        return view('outcome.index',['title' => 'My outcomes', 'heading' => $heading, 'tableData' => $tableData]);
+        return view('outcome.index',['title' => 'My outcomes', 'heading' => $heading, 'tableData' => $data]);
     }
 
     /**
