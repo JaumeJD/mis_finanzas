@@ -14,13 +14,13 @@ class OutcomeController extends Controller
     public function index()
     {
 
-        $outcomeData = (Outcome::all())->toArray();
+        $outcomeData = Outcome::all()->toArray();
 
         $heading = array_keys($outcomeData[0]);
         $data = array_values($outcomeData);
 
         //Aquí la lógica de negocio para el index
-        return view('outcome.index',['title' => 'My outcomes', 'heading' => $heading, 'tableData' => $data]);
+        return view('outcome.index',['title' => 'Spendings', 'heading' => $heading, 'tableData' => $data]);
     }
 
     /**
@@ -37,7 +37,15 @@ class OutcomeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'amount' => 'required|numeric',
+            'created_at' => 'required|date',
+            'updated_at' => 'required|date'
+        ]);
+
+        Outcome::create($request->all());
+
+        return redirect()->route('outcome.index')->with('success', 'Gasto creado con éxito.');
     }
 
     /**

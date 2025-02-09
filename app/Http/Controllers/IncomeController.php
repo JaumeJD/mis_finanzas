@@ -14,14 +14,13 @@ class IncomeController extends Controller
     public function index()
     {
 
-        $incomeData = (Income::all())->toArray();
+        $incomeData = Income::all()->toArray();
 
         $heading = array_keys($incomeData[0]);
         $data = array_values($incomeData);
 
         //Aquí la lógica de negocio para el index
-        return view('income.index',['title' => 'My incomes', 'heading' => $heading, 'tableData' => $data]);
-        
+        return view('income.index',['title' => 'Incomes', 'heading' => $heading, 'tableData' => $data]);
     }
 
     /**
@@ -38,7 +37,15 @@ class IncomeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'amount' => 'required|string',
+            'created_at' => 'required|numeric',
+            'updated_at' => 'required|date',
+        ]);
+
+        Income::create($request->all());
+
+        return redirect()->route('income.index')->with('success', 'Ingreso creado con éxito.');
     }
 
     /**
